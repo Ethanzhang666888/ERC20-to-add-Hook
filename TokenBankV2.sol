@@ -139,6 +139,7 @@ contract TokenBankV2 is TokenBank {
     // Implementing the tokensReceived function to handle the hook from BaseERC20
     function tokensReceived(address _from, uint256 _value) public  {
         require(_value > 0, "Amount must be greater than 0");
+        require(msg.sender == address(token) , "Not cantract is callabled"); 
         balances[_from] += _value;
     
     }
